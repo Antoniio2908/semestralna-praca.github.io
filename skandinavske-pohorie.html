@@ -699,4 +699,28 @@ document.addEventListener('DOMContentLoaded', updateAuthUI);
         hideLoading();
     </script>
 </body>
+    <div id="logo-container">
+    <a href="index.html">
+        <img src="logo.svg" alt="Logo" class="logo">
+    </a>
+</div>
+
+<style>
+#logo-container {
+    position: absolute;
+    top: -65px;
+    left: 20px;
+    z-index: 10;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
 </html>
