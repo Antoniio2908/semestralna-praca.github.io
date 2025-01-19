@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aká hora ste? - Test osobnosti</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #f5f5f5;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .submit-btn, .try-again-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Aká hora ste?</h1>
+            <p>Zistite, ktorému tatranskému štítu sa najviac podobáte</p>
+        </div>
+
+        <div id="testForm">
+            <div class="question">
+                <h3>1. Ako najradšej trávite voľný čas?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="1" required> Sám/sama, čítaním alebo prechádzkami v prírode
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="2"> S priateľmi, na spoločenských podujatiach
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="3"> Športovaním a aktívnym oddychom
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="4"> Učením sa nových vecí a osobným rozvojom
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="5"> Tvorením a umeleckými aktivitami
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Aká je vaša najsilnejšia vlastnosť?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="1" required> Trpezlivosť a vytrvalosť
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="2"> Kreativita a originalita
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="3"> Odvaha a odhodlanie
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="4"> Múdrosť a rozvaha
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="5"> Charizma a vodcovstvo
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. Ako reagujete na výzvy?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="1" required> Opatrne a premyslene
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="2"> Spontánne a intuitívne
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="3"> S nadšením a odvahou
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="4"> Analyticky a systematicky
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="5"> Sebavedome a rozhodne
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. Čo je pre vás v živote najdôležitejšie?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="1" required> Stabilita a istota
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="2"> Sloboda a nezávislosť
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="3"> Dobrodružstvo a zážitky
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="4"> Poznanie a múdrosť
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="5"> Úspech a uznanie
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. Ako vás vidia ostatní?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="1" required> Ako spoľahlivého a verného priateľa
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="2"> Ako kreatívnu a inšpiratívnu osobu
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="3"> Ako odvážneho dobrodruha
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="4"> Ako múdreho poradcu
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="5"> Ako prirodzeného lídra
+                    </label>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button onclick="calculateResult()" class="submit-btn">Zobraziť výsledok</button>
+            </div>
+        </div>
+
+        <div id="resultDiv" class="result hidden">
+            <h2 id="resultTitle"></h2>
+            <p id="resultDescription"></p>
+            <button onclick="resetTest()" class="try-again-btn">Skúsiť znova</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateResult() {
+            let score = 0;
+            let allAnswered = true;
+            
+            for (let i = 1; i <= 5; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption) {
+                    score += parseInt(selectedOption.value);
+                } else {
+                    allAnswered = false;
+                    alert('Prosím, odpovedzte na všetky otázky');
+                    break;
+                }
+            }
+
+            if (allAnswered) {
+                const result = getResultType(score);
+                showResult(result);
+            }
+        }
+
+        function getResultType(score) {
+            if (score <= 5) return 'krivan';
+            else if (score <= 10) return 'gerlach';
+            else if (score <= 15) return 'lomnicky';
+            else if (score <= 20) return 'rysy';
+            else return 'slavkovsky';
+        }
+
+        function showResult(resultType) {
+            const testForm = document.getElementById('testForm');
+            const resultDiv = document.getElementById('resultDiv');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDescription = document.getElementById('resultDescription');
+
+            let title = '';
+            let description = '';
+
+            switch(resultType) {
+                case 'krivan':
+                    title = 'Ste ako Kriváň!';
+                    description = 'Ste ako Kriváň - majestátny a hrdý. Symbolizujete slovenskú národnú hrdosť a históriu. Ste stabilný a spoľahlivý, ale zároveň jedinečný svojím charakteristickým vzhľadom.';
+                    break;
+                case 'gerlach':
+                    title = 'Ste ako Gerlachovský štít!';
+                    description = 'Ste ako Gerlachovský štít - najvyšší a najambicióznejší. Máte vysoké ciele a nebojíte sa výziev. Ste prirodzený vodca a inšpirujete ostatných.';
+                    break;
+                case 'lomnicky':
+                    title = 'Ste ako Lomnický štít!';
+                    description = 'Ste ako Lomnický štít - sofistikovaný a múdry. Máte vedecké sklony a radi pozorujete svet z nadhľadu. Ste prístupný, ale zachovávate si istý odstup.';
+                    break;
+                case 'rysy':
+                    title = 'Ste ako Rysy!';
+                    description = 'Ste ako Rysy - populárny a prístupný. Ľudia sa k vám radi vracajú, ste spoločenský a otvorený novým priateľstvám. Máte medzinárodného ducha.';
+                    break;
+                default:
+                    title = 'Ste ako Slavkovský štít!';
+                    description = 'Ste ako Slavkovský štít - impozantný a vznešený. Máte silný charakter a prirodzenú autoritu. Ste odvážny a nebojíte sa stáť mimo davu, vždy si idete svojou cestou.';
+            }
+
+            resultTitle.textContent = title;
+            resultDescription.textContent = description;
+            testForm.classList.add('hidden');
+            resultDiv.classList.remove('hidden');
+        }
+
+        function resetTest() {
+            const testForm = document.getElementById('testForm');
+            const resultDiv = document.getElementById('resultDiv');
+            
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(button => button.checked = false);
+            
+            testForm.classList.remove('hidden');
+            resultDiv.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
